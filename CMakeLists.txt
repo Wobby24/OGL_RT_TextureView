@@ -40,7 +40,9 @@ set(PROJECT_SOURCES
 # External dependencies
 include(FetchContent)
 
-# GLFW
+# GLFW, first 2 ensure Linux compat
+set(GLFW_BUILD_WAYLAND ON CACHE BOOL "" FORCE) 
+set(GLFW_BUILD_X11 ON CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "Disable examples" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "Disable tests" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "Disable docs" FORCE)
