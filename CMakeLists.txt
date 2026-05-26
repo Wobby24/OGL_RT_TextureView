@@ -55,12 +55,14 @@ FetchContent_MakeAvailable(glfw)
 add_library(OGL_RT_TextureView STATIC
     ${PROJECT_SOURCES}
 )
+add_library(OGL_RT_TextureView::OGL_RT_TextureView ALIAS OGL_RT_TextureView)
 
 target_link_libraries(OGL_RT_TextureView
     PUBLIC
         OpenGL::GL
-        glad_objects
         glfw
+    PRIVATE
+        glad_objects
 )
 
 # Post-build copy: only valid after the target exists
@@ -71,7 +73,7 @@ target_link_libraries(OGL_RT_TextureView
 #)
 
 # Includes
-target_include_directories(${PROJECT_NAME}
+target_include_directories(OGL_RT_TextureView
     PUBLIC
         "${INCLUDE_DIR}"
 )
