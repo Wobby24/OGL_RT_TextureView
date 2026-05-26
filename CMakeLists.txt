@@ -19,8 +19,8 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Project directories (based on current repo layout)
-set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")  # keep forward slashes and keep on one line
-set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/inc")
+set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")  # keep forward slashes and keep on one line
+set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/inc")
 #set(EXTERNAL_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/ext")
 
 # GLAD as OBJECT library
