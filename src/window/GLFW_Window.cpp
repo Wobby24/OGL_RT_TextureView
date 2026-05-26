@@ -9,8 +9,11 @@ namespace Aero::GL::Window {
 	GLFW_Window::GLFW_Window()
 		: window_(nullptr)
 	{
-		if (!glfwInit())
+		glfwSetErrorCallback(glfw_error_callback);
+
+		if (!glfwInit()) {
 			throw std::runtime_error("Failed to initialize GLFW");
+		}
 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -38,9 +41,11 @@ namespace Aero::GL::Window {
 		GLFW_Window::GLFW_Window(int width, int height, const std::string& title, int glMajorVersion, int glMinorVersion)
 			: window_(nullptr), width_(width), height_(height), title_(title), shouldClose_(false), initialized_(false), isCleanedUp_(false)
 		{
-			if (!glfwInit())
-				throw std::runtime_error("Failed to initialize GLFW");
+			glfwSetErrorCallback(glfw_error_callback);
 
+			if (!glfwInit()) {
+				throw std::runtime_error("Failed to initialize GLFW");
+			}
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, glMajorVersion);
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, glMinorVersion);
 			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -67,8 +72,11 @@ namespace Aero::GL::Window {
 		GLFW_Window::GLFW_Window(const std::string& title, int glMajorVersion, int glMinorVersion)
 			: window_(nullptr), title_(title), shouldClose_(false), initialized_(false), isCleanedUp_(false)
 		{
-			if (!glfwInit())
+			glfwSetErrorCallback(glfw_error_callback);
+
+			if (!glfwInit()) {
 				throw std::runtime_error("Failed to initialize GLFW");
+			}
 
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);

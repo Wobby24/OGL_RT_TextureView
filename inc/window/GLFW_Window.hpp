@@ -68,6 +68,11 @@ namespace Aero::GL::Window {
 
 		static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 		void HandleInternalInput();
+
+		static void glfw_error_callback(int code, const char* description)
+		{
+			printf("GLFW Error %d: %s\n", code, description);
+		}
 	};
 }
 		
